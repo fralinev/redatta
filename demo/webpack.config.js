@@ -10,11 +10,12 @@ module.exports = {
   mode: isDev ? 'development' : 'production',
   entry: path.resolve(__dirname, 'src/index.tsx'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: isDev ? 'js/bundle.js' : 'js/[name].[contenthash].js',
-    clean: true,
-    publicPath: '/'
-  },
+  path: path.resolve(__dirname, 'dist'),
+  filename: isDev ? 'js/[name].js' : 'js/[name].[contenthash].js',
+  chunkFilename: isDev ? 'js/[name].chunk.js' : 'js/[name].[contenthash].chunk.js',
+  clean: true,
+  publicPath: '/'
+},
   devtool: isDev ? 'eval-source-map' : 'source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
