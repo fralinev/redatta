@@ -1,15 +1,7 @@
 import { ReactNode } from 'react';
 
-// export type KeysOfType<T, V> = {
-//     [K in keyof T]-?: T[K] extends V ? K : never
-// }[keyof T];
-
-export interface ColumnDef<
-    T extends object
-    // K extends KeysOfType<T, ReactNode> = KeysOfType<T, ReactNode>
-> {
+export interface ColumnDef<T extends object> {
     name: string;
-    // userId: string;
     header: ReactNode | string;
     accessor?: keyof T;
     sortable?: boolean;
@@ -18,10 +10,6 @@ export interface ColumnDef<
     align?: 'left' | 'center' | 'right';
 }
 
-/**
- * The props accepted by the DataTable component.
- * @template T - The type of each data row.
- */
 export interface DataTableProps<T extends object> {
     data: T[];
     columns: ColumnDef<T>[];
@@ -34,15 +22,8 @@ export interface DataTableProps<T extends object> {
     emptyState?: ReactNode;
 }
 
-/**
- * Sorting direction type.
- */
 export type SortDirection = 'asc' | 'desc' | null;
 
-/**
- * Generic hook return type (optional)
- * if you have utilities like useSorting or usePagination.
- */
 export interface UseSortingResult<T extends object> {
     sortedData: T[];
     sortBy: string | null;

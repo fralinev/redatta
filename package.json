@@ -13,7 +13,7 @@
     }
   },
   "files": ["dist"],
-  "sideEffects": false,
+  "sideEffects": ["**/*.css"],
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
